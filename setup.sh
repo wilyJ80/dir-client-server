@@ -5,7 +5,7 @@ check_installed() {
 
 	if ! dpkg -l | grep -q "$PACKAGE_NAME"; then
 		echo "Package $PACKAGE_NAME is not installed. Exiting the script."
-		exit 1
+		return
 	else
 		echo "Package $PACKAGE_NAME found. Continuing setup..."
 	fi
@@ -32,11 +32,17 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 	EOF
 	exit 1
 else
-	echo "Script is being sourced. Continuing..."
+	echo -e "Script is being sourced. Continuing...\n"
 	check_installed "python3"
 	check_installed "python3-venv"
 	check_installed "python3-pip"
 
+fi
+
+read -p "This script will activate a new venv, pip install necessary dependencies, setup necessary folders and start the nameserver. Continue? [y/n] " confirm
+
+if [[ $confirm == "n" ]]; then
+	return
 fi
 
 echo "Creating virtual environment..."
@@ -52,4 +58,7 @@ pip install Pyro5
 mkdir source-folder
 mkdir mirror-folder
 
-echo -e "Project folders setup for client-server mirroring."
+echo -e "Project folders setup for client-server mirroring.\n"
+
+echo -e "Starting nameserver...\n"
+pyro5-ns
