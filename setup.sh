@@ -48,3 +48,8 @@ echo -e "\nPython venv configured successfully.\n"
 echo -e "Use the deactivate command to leave it.\n"
 
 pip install Pyro5
+
+mkdir source-folder
+mkdir mirror-folder
+
+echo -e "Project folders setup for client-server mirroring."
