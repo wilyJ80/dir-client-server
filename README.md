@@ -21,3 +21,5 @@
 - Run server in another shell instance: `python3 server.py`
 
 - Run client in another shell instance: `python3 client.py`
+
+- Mirrored files will be on ./mirror-folder
