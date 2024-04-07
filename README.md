@@ -6,6 +6,8 @@
 
 # Others
 
+`python3 -m venv venv`
+
 `pip install -r requirements.txt`
 
 - Make directories ./source-folder and 
