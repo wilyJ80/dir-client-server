@@ -8,6 +8,8 @@
 
 `python3 -m venv venv`
 
+`source venv/bin/activate`
+
 `pip install -r requirements.txt`
 
 - Make directories ./source-folder and 
@@ -20,8 +22,8 @@
 
 - Populate ./source-folder with desired files for mirroring.
 
-- Run server in another shell instance: `python3 server.py`
+- Run server in another shell instance with venv activated: `python3 server.py`
 
-- Run client in another shell instance: `python3 client.py`
+- Run client in another shell instance with venv activated: `python3 client.py`
 
 - Mirrored files will be on ./mirror-folder
