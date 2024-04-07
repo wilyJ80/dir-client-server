@@ -18,6 +18,6 @@
 
 - Populate ./source-folder with desired files for mirroring.
 
-- Run server: `python3 server.py`
+- Run server in another shell instance: `python3 server.py`
 
-- Run client: `python3 client.py`
+- Run client in another shell instance: `python3 client.py`
