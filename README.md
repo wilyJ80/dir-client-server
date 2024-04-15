@@ -8,7 +8,7 @@
 - [ ] Robustez: Incorpore recursos para aumentar a robustez do seu serviço, como tratamento de
 erros, lógica de reconexão em caso de falha na rede e verificações de integridade dos dados
 (por exemplo, checksums ou hashes).
-   - [ ] Tratamento de erros
+   - [X] Tratamento de erros
    - [ ] Logica de reconexao em falha na rede
    - [X] Verificacao de integridade dos dados
 - [ ] Sincronização Bidirecional (Avançado): Implemente a sincronização bidirecional, onde
