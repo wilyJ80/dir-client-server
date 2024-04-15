@@ -61,4 +61,15 @@ mkdir -p mirror-folder
 echo -e "Project folders setup for client-server mirroring.\n"
 
 echo -e "Starting nameserver...\n"
-pyro5-ns
+pyro5-ns &
+nameserver_pid=$!
+
+echo -e "Starting server...\n"
+python3 server.py &
+server_pid=$!
+
+echo -e "Run client.py to sync files.\n"
+echo "*********** Press Enter to stop all processes."
+read
+
+kill "$nameserver_pid" "$server_pid" 2>/dev/null
