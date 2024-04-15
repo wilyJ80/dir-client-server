@@ -4,7 +4,7 @@
 - [ ] Pasta vazia?
 - [ ] Multi-threading?
 - [ ] Se a pasta ja existir, ignorar
-- [ ] Automatizar o processo inteiro (Desenvolvimento de API)
+- [ ] Automatizar o processo inteiro (Desenvolvimento de API): complicado rodar em background
 - [ ] Robustez: Incorpore recursos para aumentar a robustez do seu serviço, como tratamento de
 erros, lógica de reconexão em caso de falha na rede e verificações de integridade dos dados
 (por exemplo, checksums ou hashes).
