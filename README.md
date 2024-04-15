@@ -1,3 +1,17 @@
+# Falta:
+- [ ] Cliente deve estar rodando em background?
+- [ ] Sincronizar um unico arquivo? Escolher?
+- [ ] Pasta vazia?
+- [ ] Multi-threading?
+- [ ] Automatizar o processo inteiro (Desenvolvimento de API)
+- [ ] Robustez: Incorpore recursos para aumentar a robustez do seu serviço, como tratamento de
+erros, lógica de reconexão em caso de falha na rede e verificações de integridade dos dados
+(por exemplo, checksums ou hashes).
+- [ ] Sincronização Bidirecional (Avançado): Implemente a sincronização bidirecional, onde
+alterações em qualquer uma das pastas, cliente ou servidor, são espelhadas na outra. Esse
+recurso requer lógica de resolução de conflitos
+- [ ] Criar apresentacao slide  incluindo configuração, uso e detalhes de design (8 slides?)
+
 # Setup and run nameserver (easy way - Debian/Ubuntu)
 
 `chmod +x setup.sh`
