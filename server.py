@@ -15,16 +15,25 @@ class ServeFile(object):
             for file in files:
                 full_path = os.path.join(root, file)
                 rel_path = os.path.relpath(full_path, self.root_folder)
-                with open(full_path, 'rb') as f:
-                    file_content = f.read()
-                    files_dict[rel_path] = {
-                        'content': base64.b64encode(file_content).decode('utf-8'),
-                        'checksum': hashlib.md5(file_content).hexdigest()
-                    }
+                try:
+                    with open(full_path, 'rb') as f:
+                        file_content = f.read()
+                except Exception as e:
+                    print(f"Error reading file {rel_path}: {e}")
+                    continue
+
+                files_dict[rel_path] = {
+                    'content': base64.b64encode(file_content).decode('utf-8'),
+                    'checksum': hashlib.md5(file_content).hexdigest()
+                }
         return files_dict
 
     def get_all_files(self):
-        return self._get_files_recursively(self.root_folder)
+        try:
+            return self._get_files_recursively(self.root_folder)
+        except Exception as e:
+            print(f"Error retrieving files: {e}")
+            return {}
 
 
 daemon = Pyro5.server.Daemon()

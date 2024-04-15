@@ -5,7 +5,11 @@ import hashlib
 
 file_server = Pyro5.api.Proxy("PYRONAME:example.file")
 
-files_dict = file_server.get_all_files()
+try:
+    files_dict = file_server.get_all_files()
+except Exception as e:
+    print(f"Error retrieving files: {e}")
+    files_dict = {}
 
 destination_dir = './mirror-folder/'
 
@@ -15,14 +19,18 @@ for rel_path, file_info in files_dict.items():
     os.makedirs(os.path.dirname(destination_file), exist_ok=True)
     file_content = base64.b64decode(file_info['content'])
 
-    with open(destination_file, 'wb') as file:
-        file.write(file_content)
+    try:
+        with open(destination_file, 'wb') as file:
+            file.write(file_content)
+    except Exception as e:
+        print(f"Error writing file {rel_path}: {e}")
+        continue
 
     received_checksum = hashlib.md5(file_content).hexdigest()
 
     if received_checksum == file_info['checksum']:
-        print(f'{rel_path}: File transfer successful. MD5 checksum matched.')
+        print(f'{rel_path}: File sync successful. MD5 checksums match.')
     else:
-        print(f'{rel_path}: File transfer failed. MD5 checksums do not match.')
+        print(f'{rel_path}: File sync failed. MD5 checksums do not match.')
 
 print(f'All files saved in: {destination_dir}')
