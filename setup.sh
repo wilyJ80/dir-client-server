@@ -55,8 +55,8 @@ echo -e "Use the deactivate command to leave it.\n"
 
 pip install Pyro5
 
-mkdir source-folder
-mkdir mirror-folder
+mkdir -p source-folder
+mkdir -p mirror-folder
 
 echo -e "Project folders setup for client-server mirroring.\n"
 
