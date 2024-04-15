@@ -3,6 +3,7 @@
 - [ ] Sincronizar um unico arquivo? Escolher?
 - [ ] Pasta vazia?
 - [ ] Multi-threading?
+- [ ] Se a pasta ja existir, ignorar
 - [ ] Automatizar o processo inteiro (Desenvolvimento de API)
 - [ ] Robustez: Incorpore recursos para aumentar a robustez do seu serviço, como tratamento de
 erros, lógica de reconexão em caso de falha na rede e verificações de integridade dos dados
