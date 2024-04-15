@@ -1,6 +1,7 @@
 import Pyro5.api
 import os
 import base64
+import hashlib
 
 
 @Pyro5.api.expose
@@ -15,9 +16,11 @@ class ServeFile(object):
                 full_path = os.path.join(root, file)
                 rel_path = os.path.relpath(full_path, self.root_folder)
                 with open(full_path, 'rb') as f:
-                    files_dict[rel_path] = base64.b64encode(
-                        f.read()).decode('utf-8')
-
+                    file_content = f.read()
+                    files_dict[rel_path] = {
+                        'content': base64.b64encode(file_content).decode('utf-8'),
+                        'checksum': hashlib.md5(file_content).hexdigest()
+                    }
         return files_dict
 
     def get_all_files(self):
