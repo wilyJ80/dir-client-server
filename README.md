@@ -15,3 +15,15 @@ erros, lógica de reconexão em caso de falha na rede e verificações de integr
 alterações em qualquer uma das pastas, cliente ou servidor, são espelhadas na outra. Esse
 recurso requer lógica de resolução de conflitos
 - [ ] Criar apresentacao slide  incluindo configuração, uso e detalhes de design (8 slides?)
+
+# Rodar
+
+`python3 -m venv venv`
+
+`source venv/bin/activate`
+
+`pip install -r requirements.txt`
+
+`python3 main.py`
+
+- Arquivos em ./source-folder serão sincronizado sem ./mirror-folder
